@@ -1,0 +1,15 @@
+{
+  "name": "javascriptlearn",
+  "version": "1.0.0",
+  "description": "Learn Javascript",
+  "main": "yes",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "learn"
+  ],
+  "author": "Dickson",
+  "license": "ISC",
+  "type": "module"
+}
