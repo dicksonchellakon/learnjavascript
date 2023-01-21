@@ -42,3 +42,17 @@ export let makeUser = (name, age) => {
 export let empObj = {
     name : "Dickson "
 };
+
+
+
+
+export function addition(x, y) {
+    return x + y
+}
+
+export let additionArrow1 = (x, y) => x + y
+
+export let additionArrow2 = (x, y) =>  {
+    let z = x + y
+    return z
+}
