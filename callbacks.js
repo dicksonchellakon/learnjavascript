@@ -1,3 +1,4 @@
+//Callbacks are available from ES5
 // Callbacks
 function greet(name, callbacks) {
     console.log('Hi' + ' ' + name);
