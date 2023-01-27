@@ -1,5 +1,5 @@
 //Callbacks are available from ES5
-// Callbacks
+/*// Callbacks
 function greet(name, callbacks) {
     console.log('Hi' + ' ' + name);
     callbacks()
@@ -10,10 +10,15 @@ function callMe() {
     console.log('I am callback function');
 }
 
+console.log('Before Timeout');
 setTimeout(greet, 2000, 'John', callMe);
+console.log('After Timeout');
+*/
+
+/*
 setTimeout(greet, 2000, 'John', () => {
     console.log('I am callback');
-});
+});*/
 
 //greet('Peter', callMe); // Hi Peter
 

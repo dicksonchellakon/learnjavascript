@@ -20,10 +20,30 @@ addition(5, 5)
 .catch(error => {   console.log(error) })
 .finally(() => {    console.log("Finally Nothing")   })
 */
-
+/*
 console.log("Start")
 
 setTimeout(() => {console.log("Timeout")}, 0)
 
 Promise.resolve("Promise").then(res => console.log(res))
-console.log("End")
+console.log("End")*/
+
+let promise = new Promise((resolve, reject) => {
+
+    let text = "Hello World";
+
+    //resolve(text)
+    reject(new Error("System Down!"))
+  });
+
+  promise
+  .then((result)=> {
+    console.log(result)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+  .finally(() => {
+    console.log('Finally, Sleep')
+  })
+

@@ -95,7 +95,7 @@ class User {
   
   new User().HelloWorld();*/
 
-
+/*
   class Button {
     constructor(value) {
       this.value = value;
@@ -118,4 +118,57 @@ class User {
         }, 
     1000);
 
-    setTimeout(button.clickAgain)
+    setTimeout(button.clickAgain)*/
+
+
+
+/*
+    class User {
+      constructor(name, place){
+        this.name = name
+        this.place = place
+      }
+
+      displayName(){
+        console.log(this.name +" >> "+ this.place)
+      }
+    }
+
+    class Student extends User {
+      constructor(name, age, place) {
+        super(name, place)
+        this.age = age
+      }
+
+      displayName(){
+        super.displayName()
+        console.log(this.age)
+      }
+    }
+
+    let student1 = new Student("John Peter", 23, "Kerala")
+    student1.displayName()
+    //console.log(student1.name +" >> "+ student1.age +" >> "+ student1.place)*/
+
+
+
+    //Static Properties and functions
+
+
+    class User {
+      static name = "John Peter"
+      static displayName()  {
+        console.log("This is Static Function")
+      }
+    }
+
+    console.log(User.name)
+    User.displayName()
+
+    class Helper {
+      add(a, b) {
+        return a + b
+      }
+    }
+
+    Helper.add(5,6)
