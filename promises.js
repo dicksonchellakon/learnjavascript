@@ -27,7 +27,7 @@ setTimeout(() => {console.log("Timeout")}, 0)
 
 Promise.resolve("Promise").then(res => console.log(res))
 console.log("End")*/
-
+/*
 let promise = new Promise((resolve, reject) => {
 
     let text = "Hello World";
@@ -46,4 +46,19 @@ let promise = new Promise((resolve, reject) => {
   .finally(() => {
     console.log('Finally, Sleep')
   })
+*/
 
+async function main() {
+
+  await new Promise(resolve => {
+    setTimeout(() => {
+      console.log("Hello")
+      resolve()
+     }, 1000)
+  })
+
+  
+  console.log("World")
+}
+
+main()
