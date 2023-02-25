@@ -1,28 +1,61 @@
- <html>
-    <head>
-        <title>List of Users</title>
-        <script>
-/**
- * List the Users from the below API
- * https://jsonplaceholder.typicode.com/users
- */
- let userData = {}
- let fetchUsers = async () => {
-    let fetchUserResponse = await fetch('https://jsonplaceholder.typicode.com/users')
-    
-    if(!fetchUserResponse.ok) return 
-    
-    userData = await fetchUserResponse.json();
-    console.log(userData)
-   
+<html>
+   <head>
+       <title>List of Users</title>
+       <script>
+         /**
+          * List the Users from the below API
+          * https://jsonplaceholder.typicode.com/users
+          */
+         let userData = []
+         let fetchUsers = async () => {
+             let fetchUserResponse = await fetch('https://jsonplaceholder.typicode.com/users')
+             
+             if(!fetchUserResponse.ok) return 
+             
+             return await fetchUserResponse.json();
+         }
+       </script>
+   </head>
+   <body>
+     
+     <table></table>
+
+     <script>
+
+function generateTableHead(table, data) {
+ let thead = table.createTHead();
+ let row = thead.insertRow();
+ for (let key of data) {
+   let th = document.createElement("th");
+   let text = document.createTextNode(key);
+   th.appendChild(text);
+   row.appendChild(th);
  }
+}
 
- fetchUsers()
+function generateTable(table, data) {
+
+ data.forEach(user => {
+   let row = table.insertRow();
+   for (key in user) {
+     let cell = row.insertCell();
+     let text = document.createTextNode(user[key]);
+     cell.appendChild(text);
+   }
+ });
+}
 
 
-        </script>
-    </head>
-    <body>
+       fetchUsers()
+         .then(users => {
+           console.log(users)
+           let table = document.querySelector("table");
+           let data = Object.keys(users[0]);
+           generateTable(table, users); // generate the table
+           generateTableHead(table, data); // then the head
 
-    </body>
- </html>
+        })         
+     </script>
+
+   </body>
+</html>
