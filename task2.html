@@ -1,12 +1,19 @@
 <html>
    <head>
        <title>List of Users</title>
-       <script>
-         /**
+   </head>
+   <body>
+     
+     <table></table>
+
+     <script>
+      /**
           * List the Users from the below API
           * https://jsonplaceholder.typicode.com/users
           */
          let userData = []
+
+         //Get the list of Users from API
          let fetchUsers = async () => {
              let fetchUserResponse = await fetch('https://jsonplaceholder.typicode.com/users')
              
@@ -14,38 +21,35 @@
              
              return await fetchUserResponse.json();
          }
-       </script>
-   </head>
-   <body>
-     
-     <table></table>
 
-     <script>
+         //Generate the HTML Table Head
+        function generateTableHead(table, data) {
+          let thead = table.createTHead();
+          let row = thead.insertRow();
+          for (let key of data) {
+            let th = document.createElement("th");
+            let text = document.createTextNode(key);
+            th.appendChild(text);
+            row.appendChild(th);
+          }
+        }
 
-function generateTableHead(table, data) {
- let thead = table.createTHead();
- let row = thead.insertRow();
- for (let key of data) {
-   let th = document.createElement("th");
-   let text = document.createTextNode(key);
-   th.appendChild(text);
-   row.appendChild(th);
- }
-}
+        //Generate the HTML Table Rows
+        function generateTable(table, data) {
+          data.forEach(user => {
+            let row = table.insertRow();
+            for (key in user) {
+              let cell = row.insertCell();
+              let text = document.createTextNode(user[key]);
+              cell.appendChild(text);
+            }
+          });
+        }
 
-function generateTable(table, data) {
-
- data.forEach(user => {
-   let row = table.insertRow();
-   for (key in user) {
-     let cell = row.insertCell();
-     let text = document.createTextNode(user[key]);
-     cell.appendChild(text);
-   }
- });
-}
-
-
+        /**
+         * Functionality to call a API to get the Users lit
+         * Generate a HTML Table to render it.
+        */
        fetchUsers()
          .then(users => {
            console.log(users)
