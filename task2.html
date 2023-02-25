@@ -1,0 +1,28 @@
+ <html>
+    <head>
+        <title>List of Users</title>
+        <script>
+/**
+ * List the Users from the below API
+ * https://jsonplaceholder.typicode.com/users
+ */
+ let userData = {}
+ let fetchUsers = async () => {
+    let fetchUserResponse = await fetch('https://jsonplaceholder.typicode.com/users')
+    
+    if(!fetchUserResponse.ok) return 
+    
+    userData = await fetchUserResponse.json();
+    console.log(userData)
+   
+ }
+
+ fetchUsers()
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+ </html>
